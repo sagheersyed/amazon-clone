@@ -3,18 +3,22 @@ import styled from 'styled-components'
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 function Header() {
     return (
         <Container>
             <HeaderLogo>
-                <img src="https://pngimg.com/uploads/amazon/amazon_PNG25.png" alt=""/>
+                    <AppName>RoshaabApp</AppName> 
             </HeaderLogo>
             <Direction>
+                <LocationLogo><LocationOnIcon/></LocationLogo>
+                <Parent>
                 <OptionLineOne>Deliever to</OptionLineOne>
                 <OptionLineTwo>Pakistan</OptionLineTwo>
+                </Parent>
             </Direction>
             <HeaderSearch>
-                <ArrowDropDowned style={{ width:50 , height:42 , color:'black'}}/>
+                <ArrowDropDowned style={{ width:50 , height:41 , color:'black'}}/>
                     <HeaderSearchInput/>
                 <HeaderSearchIcon>
                     <SearchIcon/>
@@ -57,7 +61,7 @@ const HeaderLogo = styled.div`
 cursor:pointer;
 border:1px solid rgba(111,111,111,0);
 border-radius:3px;
-margin:10px 5px 10px 0px;
+margin:20px 5px 20px 0px;
 padding:0px;
 img{
     width:110px;
@@ -65,7 +69,19 @@ img{
 }
 :hover{
     border:1px solid white;
+    text-shadow: 4px 4px 4px #aaa;
+
 }
+`;
+
+const AppName = styled.div`
+// font-size:20px;
+font-weight:1000;
+font-family: 'Tangerine', serif;
+  font-size: 28px;
+color:Orange;
+display:flex;
+align-items:center;
 `;
 
 const Direction = styled.div`
@@ -73,11 +89,20 @@ border:1px solid rgba(111,111,111,0);
 border-radius:3px;
 padding:10px;
 margin:10px 10px 10px 0px;
-
+display:flex;
+align-items:center;
 :hover{
     border:1px solid white;
     cursor:pointer;
 }
+`;
+const Parent = styled.div`
+display:flex;
+flex-direction:column;
+`;
+const LocationLogo = styled.div`
+display:flex;
+flex-direction:
 `;
 
 const OptionLineOne = styled.div`
@@ -96,9 +121,10 @@ align-items:center;
 flex-grow:1;
 border:3px solid rgba(111,111,111,0);
 margin:10px 15px 10px 15px;
-:focus{
+
+:focus-within{
     border:3px solid orange;
-    border-radius:5px;
+    border-radius:10px;
 }
 `;
 
@@ -113,7 +139,7 @@ const HeaderSearchIcon = styled.div`
 color:black;
 background:#febd69;
 border-radius:0px 5px 5px 0px;
-height:42px;
+height:41.8px;
 width:40px;
 display:flex;
 align-items:center;
