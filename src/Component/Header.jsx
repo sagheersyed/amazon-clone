@@ -4,13 +4,16 @@ import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-function Header() {
+import {Link} from 'react-router-dom'
+function Header({addCart}) {
     return (
         <Container>
             <HeaderLogo>
+                <Link to="/">
                     <AppName>RoshaabApp</AppName> 
+                </Link>
             </HeaderLogo>
-            <Direction>
+            <Direction onClick={addCart}>
                 <LocationLogo><LocationOnIcon/></LocationLogo>
                 <Parent>
                 <OptionLineOne>Deliever to</OptionLineOne>
@@ -18,7 +21,7 @@ function Header() {
                 </Parent>
             </Direction>
             <HeaderSearch>
-                <ArrowDropDowned style={{ width:50 , height:41 , color:'black'}}/>
+                <ArrowDropDowned style={{ width:50 , height:41.7 , color:'black'}}/>
                     <HeaderSearchInput/>
                 <HeaderSearchIcon>
                     <SearchIcon/>
@@ -37,8 +40,10 @@ function Header() {
                 <OptionLineTwo>& Orders</OptionLineTwo>
             </ReturnAndOrder>
             <HeaderCart>
+                <Link to="/cart">
                 <AddShoppingCartOutlinedIcon style={{width:40}}/>
                 <OptionLineOne style={{marginLeft:0}}>Cart</OptionLineOne>
+                </Link>
             </HeaderCart>
         </Container>
     )
@@ -54,7 +59,6 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0px 20px 0px 20px;
-
 `;
 
 const HeaderLogo = styled.div`
@@ -69,8 +73,11 @@ img{
 }
 :hover{
     border:1px solid white;
-    text-shadow: 4px 4px 4px #aaa;
-
+    color:black;
+}
+a{
+    text-decoration:none;
+    color:yellow;
 }
 `;
 
@@ -130,18 +137,20 @@ margin:10px 15px 10px 15px;
 
 const HeaderSearchInput = styled.input`
 flex-grow:1;
-height:37px;
+height:39.6px;
 outline:none;
 font-size:17px;
+border:none;
 `;
 
 const HeaderSearchIcon = styled.div`
 color:black;
 background:#febd69;
 border-radius:0px 5px 5px 0px;
-height:41.8px;
+height:41.7px;
 width:40px;
 display:flex;
+// margin-left:-1px;
 align-items:center;
 justify-content:center;
 overflow:hidden;
@@ -211,5 +220,12 @@ margin:10px 5px 10px 0px;
     border:1px solid white;
     border-spacing: 500px;  
     cursor:pointer;
+}
+
+a{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+    color:white;
 }
 `;
